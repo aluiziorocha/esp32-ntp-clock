@@ -8,7 +8,7 @@
 LiquidCrystal_I2C LCD = LiquidCrystal_I2C(0x27, 16, 2);
 
 #define NTP_SERVER     "pool.ntp.org"
-#define UTC_OFFSET     0
+#define UTC_OFFSET     -10800 // UTC-3
 #define UTC_OFFSET_DST 0
 
 void spinner() {
@@ -33,7 +33,7 @@ void printLocalTime() {
   LCD.println(&timeinfo, "%H:%M:%S");
 
   LCD.setCursor(0, 1);
-  LCD.println(&timeinfo, "%d/%m/%Y   %Z");
+  LCD.println(&timeinfo, "%d/%m/%Y %Z-3");
 }
 
 void setup() {
